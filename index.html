@@ -96,7 +96,7 @@
                var ramal = document.getElementsByName('ramal')[0].value;
                var conteudo_da_mensage = document.getElementsByName('mensagem')[0].value;
                var mensagemWhatsapp = '*Nome*: '+nome+'\n*Setor*: '+setor+'\n'+conteudo_da_mensage + '\n\n*Entre em contato comigo pelo Ramal*: '+ramal;
-               window.open('https://web.whatsapp.com/send?phone=5511964395773&text='+encodeURIComponent(mensagemWhatsapp), '_blank');
+               window.open('https://api.whatsapp.com/send?phone=5511964395773&text='+encodeURIComponent(mensagemWhatsapp), '_blank');
                
                }
                var formulario = document.getElementById('formulario_contato');
