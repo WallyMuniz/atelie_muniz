@@ -231,8 +231,7 @@ a {
    list-style: none;
    font-weight: bold;
    padding: 10px 12px;/* margin: 5px; */ background: #72120B;}
-   color: white;
-
+   
 .menu li a:hover {
    background: #c0d22e00;
    color: #000000;
