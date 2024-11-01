@@ -33,7 +33,7 @@
         function atualizarExibicao() {
             let lista = '';
             listaDeCompras.forEach((item, i) => {
-                lista += `${i + 1}. ${item.nomeDoItem}\n   R$ ${item.valor.toFixed(2)} [<button onclick="removerItem(${i})">Remover</button>]\n\n`;
+                lista += `${i + 1}. ${item.nomeDoItem}\n   R$ ${item.valor.toFixed(2)} \n\n`;
             });
             respLista.innerText = lista;
             totalDisplay.innerText = total.toFixed(2);
