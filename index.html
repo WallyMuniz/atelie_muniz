@@ -4,22 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Compras</title>
+    <style>
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            background: rgb(243, 237, 225);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .container {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -5px -5px 15px rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #e0e0e0;
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
+        }
+
+        p, label {
+            font-size: 1em;
+            color: #c0c0c0;
+        }
+        
+        button {
+            background-color: #333333;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3), -3px -3px 10px rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #444444;
+            box-shadow: inset 2px 2px 8px rgba(255, 255, 255, 0.1), inset -2px -2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: #222222;
+            border-radius: 5px;
+        }
+
+        .item span {
+            margin-right: 10px;
+        }
+        
+        #respLista {
+        max-height: 300px;
+        overflow-y: auto; 
+        margin-top: 20px;
+        padding: 10px;
+        background: #1a1a1a;
+        border-radius: 5px;
+        box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.3), inset -2px -2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Lista de Compras</h1>
 
-    <form id="formulario">
-        <label for="item">Item:</label>
-        <input type="text" id="item" name="item" required>
-        
-        <label for="valor">Valor:</label>
-        <input type="number" id="valor" name="valor" step="0.01" required>
-        
-        <button type="submit">Adicionar</button>
-    </form>
+        <form id="formulario">
+            <p>
+                <label for="item">Item:</label>
+                <input type="text" id="item" name="item" required>
+            </p>
+            <p>
+                <label for="valor">Valor:</label>
+                <input type="number" id="valor" name="valor" step="0.01" required>
+            </p>
+            <button type="submit">Adicionar</button>
+        </form>
 
-    <pre id="respLista"></pre>
-    <p><strong>Total:</strong> R$ <span id="total">0.00</span></p>
-    <button id="limparLista">Limpar Lista</button>
+        <div id="respLista"></div>
+        <p><strong>Total:</strong> R$ <span id="total">0.00</span></p>
+
+        <button id="limparLista">Limpar Lista</button>
+    </div>
 
     <script>
         const formulario = document.querySelector('#formulario');
@@ -33,9 +115,15 @@
         function atualizarExibicao() {
             let lista = '';
             listaDeCompras.forEach((item, i) => {
-                lista += `${i + 1}. ${item.nomeDoItem}\n   R$ ${item.valor.toFixed(2)} \n\n`;
+                lista += `
+                    <div class="item">
+                        <span>${i + 1}. ${item.nomeDoItem}</span>
+                        <span>R$ ${item.valor.toFixed(2)}</span>
+                        <button onclick="removerItem(${i})">Remover</button>
+                    </div>
+                `;
             });
-            respLista.innerText = lista;
+            respLista.innerHTML = lista;
             totalDisplay.innerText = total.toFixed(2);
             localStorage.setItem('listaDeCompras', JSON.stringify(listaDeCompras));
         }
@@ -68,9 +156,7 @@
             atualizarExibicao();
         });
 
-        // Carrega a lista de compras ao iniciar a página
         atualizarExibicao();
     </script>
-
 </body>
 </html>
