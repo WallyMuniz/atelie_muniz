@@ -127,6 +127,11 @@
             </div>
 
             <div class="form-group">
+                <label for="quantidade"><b>Quantidade:</b></label>
+                <input type="number" id="quantidade" name="quantidade" value="1" min="1" required>
+            </div>
+
+            <div class="form-group">
                 <label for="categoria"><b>Categoria:</b></label>
                 <select id="categoria" name="categoria" required>
                     <option value="Alimentos">Alimentos</option>
@@ -156,7 +161,7 @@
         const baixarCSVBtn = document.querySelector('#baixarCSV');
 
         let listaDeCompras = JSON.parse(localStorage.getItem('listaDeCompras')) || [];
-        let total = listaDeCompras.reduce((sum, item) => sum + item.valor, 0);
+        let total = listaDeCompras.reduce((sum, item) => sum + item.valor * item.quantidade, 0);
 
         function atualizarExibicao() {
             let categorias = {
@@ -179,8 +184,8 @@
                     categorias[categoria].forEach((item, i) => {
                         listaHTML += `
                             <div class="item">
-                                <span>${item.nomeDoItem}</span>
-                                <span>R$ ${item.valor.toFixed(2)}</span>
+                                <span>${item.nomeDoItem} (x${item.quantidade})</span>
+                                <span>R$ ${(item.valor * item.quantidade).toFixed(2)}</span>
                                 <button onclick="removerItem(${i})">Remover</button>
                             </div>
                         `;
@@ -198,21 +203,23 @@
 
             const nomeDoItem = formulario.item.value;
             const valor = parseFloat(formulario.valor.value);
+            const quantidade = parseInt(formulario.quantidade.value);
             const categoria = formulario.categoria.value;
 
-            listaDeCompras.push({ nomeDoItem, valor, categoria });
-            total += valor;
+            listaDeCompras.push({ nomeDoItem, valor, quantidade, categoria });
+            total += valor * quantidade;
 
             atualizarExibicao();
 
             formulario.item.value = '';
             formulario.valor.value = '';
+            formulario.quantidade.value = 1;
             formulario.categoria.value = 'Alimentos';
             formulario.item.focus();
         });
 
         function removerItem(index) {
-            total -= listaDeCompras[index].valor;
+            total -= listaDeCompras[index].valor * listaDeCompras[index].quantidade;
             listaDeCompras.splice(index, 1);
             atualizarExibicao();
         }
@@ -232,9 +239,9 @@
         });
 
         function gerarCSV(dados) {
-            let csv = 'Item,Valor,Categoria\n';
+            let csv = 'Item,Valor,Quantidade,Categoria\n';
             dados.forEach(item => {
-                csv += `${item.nomeDoItem},${item.valor.toFixed(2)},${item.categoria}\n`;
+                csv += `${item.nomeDoItem},${item.valor.toFixed(2)},${item.quantidade},${item.categoria}\n`;
             });
             return csv;
         }
