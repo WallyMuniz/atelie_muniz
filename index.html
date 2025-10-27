@@ -1,251 +1,251 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Lista de Compras</title>
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            height: auto;
-            background-image: url('imagem.jpg');
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            color: #ffffff;
-            overflow-y: auto;  
-            overflow-x: hidden; 
-        }
-
-        .container {
-            background:#00000082;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -5px -5px 15px rgba(255, 255, 255, 0.1);
-            max-width: 600px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            font-size: 2em;
-            color: #e0e0e0;
-            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
-        }
-
-        p, label {
-            font-size: 1em;
-            color: #c0c0c0;
-            margin: 10px 0;
-        }
-
-        label {
-            display: block;
-            text-align: left;
-            width: 100%;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        input, select {
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-
-        button {
-            background-color: #333333;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3), -3px -3px 10px rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #444444;
-            box-shadow: inset 2px 2px 8px rgba(255, 255, 255, 0.1), inset -2px -2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0;
-            padding: 10px;
-            background: #00000082;
-            border-radius: 5px;
-        }
-
-        .item span {
-            margin-right: 10px;
-        }
-
-        #respLista {
-            max-height: 300px;
-            overflow-y: auto; 
-            margin-top: 20px;
-            padding: 10px;
-            background: #ffffff26;
-            border-radius: 5px;
-            box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.3), inset -2px -2px 10px rgba(255, 255, 255, 0.1);
-        }
-
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AtelieMuniz — Panos de Prato & Mesa Posta</title>
+  <meta name="description" content="Loja de mesa posta e panos de prato artesanais. Compre online pelo WhatsApp, PIX e entrega para todo o Brasil."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { 
+      --brand-brown: #7a4b2b; /* talheres e tipografia da logo */
+      --brand-cream: #f6f1ec; /* fundo claro */
+      --brand-pink: #e05a8a;  /* tulipa */
+      --brand-green: #3a8b4f; /* caule/verde */
+      --ink: #3a2a20;        /* texto principal */
+    }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif; }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Lista de Compras</h1>
+<body class="bg-[var(--brand-cream)] text-[var(--ink)]">
+  <!-- Header / Hero -->
+  <header class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[var(--brand-cream)] via-white to-[rgba(224,90,138,0.12)]"></div>
+    <nav class="relative z-10 max-w-6xl mx-auto flex items-center justify-between p-4 sm:p-6">
+      <div class="flex items-center gap-2">
+        <img src="logo.png" alt="AteliêMuniz" class="w-9 h-9 rounded-full ring-2 ring-[var(--brand-brown)] object-cover"/>
+        <span class="font-extrabold tracking-tight text-xl">AteliêMuniz</span>
+      </div>
+      <a href="#catalogo" class="text-sm font-semibold hover:underline">Catálogo</a>
+    </nav>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">Mesa posta com carinho, <span class="text-[var(--brand-pink)]">panos de prato</span> que duram.</h1>
+        <p class="mt-4 text-stone-700 text-lg">Peças selecionadas para transformar suas refeições em momentos especiais. Encomende pelo WhatsApp, pague por PIX e receba em casa.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#catalogo" class="px-5 py-3 rounded-2xl bg-[var(--brand-brown)] text-white font-semibold shadow hover:opacity-90">Ver catálogo</a>
+          <a id="cta-whatsapp" target="_blank" rel="noopener" class="px-5 py-3 rounded-2xl bg-[var(--brand-green)] text-white font-semibold shadow hover:opacity-90" href="#">Comprar no WhatsApp</a>
+        </div>
+        <p class="mt-3 text-xs text-stone-500">Trocas em até 7 dias • Envio para todo o Brasil • PIX e cartão</p>
+        <div class="mt-8 flex flex-col items-start gap-4 text-stone-700">
+          <p class="text-lg italic font-medium">Feito à mão com amor 💕</p>
+          <div class="flex gap-3 overflow-x-auto w-full pb-2"></div>
+        </div>
+      </div>
+      <!-- Foto da fundadora no hero -->
+      <div class="aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-lg">
+        <img src="Fundadora.JPEG" alt="Fundadora do AtelieMuniz" class="w-full h-full object-cover"/>
+      </div>
+    </div>
+  </header>
 
-        <form id="formulario">
-            <div class="form-group">
-                <label for="item"><b>Item:</b></label>
-                <input type="text" id="item" name="item" required>
-            </div>
+  <!-- Badges -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="flex items-center gap-3 p-4 bg-white rounded-2xl shadow">
+      <div class="w-9 h-9 rounded-xl bg-[rgba(58,139,79,0.15)]"></div>
+      <div>
+        <p class="text-sm font-semibold">Pagamento seguro</p>
+        <p class="text-xs text-stone-500">PIX, cartão e boleto</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 p-4 bg-white rounded-2xl shadow">
+      <div class="w-9 h-9 rounded-xl bg-[rgba(122,75,43,0.15)]"></div>
+      <div>
+        <p class="text-sm font-semibold">Envio rápido</p>
+        <p class="text-xs text-stone-500">Correios e transportadoras</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 p-4 bg-white rounded-2xl shadow">
+      <div class="w-9 h-9 rounded-xl bg-[rgba(224,90,138,0.15)]"></div>
+      <div>
+        <p class="text-sm font-semibold">Qualidade premium</p>
+        <p class="text-xs text-stone-500">Tecidos selecionados</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 p-4 bg-white rounded-2xl shadow">
+      <div class="w-9 h-9 rounded-xl bg-[rgba(58,42,32,0.08)]"></div>
+      <div>
+        <p class="text-sm font-semibold">Atendimento humanizado</p>
+        <p class="text-xs text-stone-500">WhatsApp direto</p>
+      </div>
+    </div>
+  </section>
 
-            <div class="form-group">
-                <label for="valor"><b>Valor:</b></label>
-                <input type="number" id="valor" name="valor" step="0.01" required>
-            </div>
-
-            <div class="form-group">
-                <label for="quantidade"><b>Quantidade:</b></label>
-                <input type="number" id="quantidade" name="quantidade" value="1" min="1" required>
-            </div>
-
-            <div class="form-group">
-                <label for="categoria"><b>Categoria:</b></label>
-                <select id="categoria" name="categoria" required>
-                    <option value="Alimentos">Alimentos</option>
-                    <option value="Bebidas">Bebidas</option>
-                    <option value="Proteínas">Proteínas</option>
-                    <option value="Frios">Frios</option>
-                    <option value="Frutas, Verduras e Legumes">Frutas, Verduras e Legumes</option>
-                    <option value="Higiene & Limpeza">Higiene & Limpeza</option>
-                </select>
-            </div>
-
-            <button type="submit"><b>Adicionar</b></button>
-        </form>
-
-        <div id="respLista"></div>
-        <p><strong><b>Total:</b></strong> R$ <span id="total">0.00</span></p>
-
-        <button id="limparLista"><b>Limpar Lista</b></button>
-        <button id="baixarCSV"><b>Baixar CSV</b></button>
+  <!-- Catálogo -->
+  <section id="catalogo" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold">Catálogo</h2>
+        <p class="text-stone-600">Escolha sua peça favorita e finalize pelo WhatsApp.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <label class="text-sm">Ordenar:</label>
+        <select id="sort" class="border rounded-xl px-3 py-2 text-sm">
+          <option value="popular">Mais populares</option>
+          <option value="price-asc">Menor preço</option>
+          <option value="price-desc">Maior preço</option>
+        </select>
+      </div>
     </div>
 
-    <script>
-        const formulario = document.querySelector('#formulario');
-        const respLista = document.querySelector('#respLista');
-        const totalDisplay = document.querySelector('#total');
-        const limparListaBtn = document.querySelector('#limparLista');
-        const baixarCSVBtn = document.querySelector('#baixarCSV');
+    <div id="grid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Produto 1: Jogo americano -->
+      <article class="bg-white rounded-2xl shadow overflow-hidden flex flex-col">
+        <div class="h-48 bg-[url('Linho.PNG')] bg-cover bg-center"></div>
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-semibold text-lg">Jogo Americano Linho</h3>
+          <p class="text-sm text-stone-600">Conjunto 4 peças • Linho premium</p>
+          <div class="mt-3 font-extrabold text-xl">R$ 159,90</div>
+          <button data-product="Jogo Americano Linho" data-price="159.90" class="mt-4 w-full py-3 rounded-xl bg-[var(--brand-brown)] text-white font-semibold hover:opacity-90 whatsapp-buy">Comprar</button>
+        </div>
+      </article>
 
-        let listaDeCompras = JSON.parse(localStorage.getItem('listaDeCompras')) || [];
-        let total = listaDeCompras.reduce((sum, item) => sum + item.valor * item.quantidade, 0);
+      <!-- Produto 2: Guardanapos -->
+      <article class="bg-white rounded-2xl shadow overflow-hidden flex flex-col">
+        <div class="h-48 bg-[url('Guardanapo.PNG')] bg-cover bg-center"></div>
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-semibold text-lg">Guardanapos Algodão</h3>
+          <p class="text-sm text-stone-600">Kit 6 unidades • 45x45cm</p>
+          <div class="mt-3 font-extrabold text-xl">R$ 89,90</div>
+          <button data-product="Guardanapos Algodão (kit 6)" data-price="89.90" class="mt-4 w-full py-3 rounded-xl bg-[var(--brand-brown)] text-white font-semibold hover:opacity-90 whatsapp-buy">Comprar</button>
+        </div>
+      </article>
 
-        function atualizarExibicao() {
-            let categorias = {
-                'Alimentos': [],
-                'Bebidas': [],
-                'Proteínas': [],
-                'Frios': [],
-                'Frutas, Verduras e Legumes': [],
-                'Higiene & Limpeza': []
-            };
+      <!-- Produto 3: Pano de prato -->
+      <article class="bg-white rounded-2xl shadow overflow-hidden flex flex-col">
+        <div class="h-48 bg-[url('panos.PNG')] bg-cover bg-center"></div>
+        <div class="p-4 flex-1 flex flex-col">
+          <h3 class="font-semibold text-lg">Pano de Prato Estampado</h3>
+          <p class="text-sm text-stone-600">100% algodão • Alta absorção</p>
+          <div class="mt-3 font-extrabold text-xl">R$ 24,90</div>
+          <button data-product="Pano de Prato Estampado" data-price="24.90" class="mt-4 w-full py-3 rounded-xl bg-[var(--brand-brown)] text-white font-semibold hover:opacity-90 whatsapp-buy">Comprar</button>
+        </div>
+      </article>
+    </div>
+  </section>
 
-            listaDeCompras.forEach(item => {
-                categorias[item.categoria].push(item);
-            });
+  <!-- FAQ / Info -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-extrabold text-xl">Envio</h3>
+        <p class="text-stone-600 mt-2 text-sm">Postamos em até 2 dias úteis. Frete calculado no fechamento do pedido. Entrega para todo o Brasil.</p>
+      </div>
+      <div>
+        <h3 class="font-extrabold text-xl">Pagamento</h3>
+        <p class="text-stone-600 mt-2 text-sm">PIX, cartão de crédito e boleto via link de pagamento enviado pelo WhatsApp.</p>
+      </div>
+      <div>
+        <h3 class="font-extrabold text-xl">Troca & Devolução</h3>
+        <p class="text-stone-600 mt-2 text-sm">Você pode solicitar troca ou devolução em até 7 dias corridos após o recebimento.</p>
+      </div>
+    </div>
+  </section>
 
-            let listaHTML = '';
-            for (let categoria in categorias) {
-                if (categorias[categoria].length > 0) {
-                    listaHTML += `<h3>${categoria}</h3>`;
-                    categorias[categoria].forEach((item, i) => {
-                        listaHTML += `
-                            <div class="item">
-                                <span>${item.nomeDoItem} (x${item.quantidade})</span>
-                                <span>R$ ${(item.valor * item.quantidade).toFixed(2)}</span>
-                                <button onclick="removerItem(${i})">Remover</button>
-                            </div>
-                        `;
-                    });
-                }
-            }
+  <!-- Políticas da Loja -->
+  <section id="politicas" class="bg-stone-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      <h2 class="text-2xl sm:text-3xl font-extrabold">Políticas da Loja</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-8 text-sm text-stone-700">
+        <div id="politica-envio">
+          <h3 class="font-bold text-stone-900">Envio & Prazos</h3>
+          <p class="mt-2">Postamos os pedidos em até <strong>2 dias úteis</strong> após a confirmação do pagamento. O prazo de entrega e o valor do frete são calculados no fechamento do pedido, conforme o CEP informado.</p>
+        </div>
+        <div id="politica-pagamento">
+          <h3 class="font-bold text-stone-900">Pagamentos</h3>
+          <p class="mt-2">Aceitamos <strong>PIX</strong> e <strong>cartão de crédito</strong> via link seguro enviado pelo WhatsApp. Para PIX, enviamos a chave após o atendimento.</p>
+        </div>
+        <div id="politica-troca">
+          <h3 class="font-bold text-stone-900">Trocas & Devoluções</h3>
+          <p class="mt-2">Para compras online, você pode desistir em até <strong>7 dias corridos</strong> após o recebimento (direito de arrependimento). Produtos com defeito podem ser trocados; entre em contato com fotos e número do pedido.</p>
+        </div>
+        <div id="politica-privacidade">
+          <h3 class="font-bold text-stone-900">Privacidade</h3>
+          <p class="mt-2">Utilizamos seus dados apenas para atendimento e envio do pedido. Não compartilhamos informações com terceiros, exceto parceiros logísticos e de pagamento necessários para a conclusão da compra.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            respLista.innerHTML = listaHTML;
-            totalDisplay.innerText = total.toFixed(2);
-            localStorage.setItem('listaDeCompras', JSON.stringify(listaDeCompras));
-        }
+  <!-- Footer -->
+  <footer class="py-10 text-center text-sm text-stone-500">
+    <p>© <span id="year"></span> AtelieMuniz — Todos os direitos reservados.</p>
+    <p class="mt-2">
+      <a href="#politica-privacidade" class="underline">Política de Privacidade</a>
+      ·
+      <a href="#politica-troca" class="underline">Política de Troca</a>
+    </p>
+  </footer>
 
-        formulario.addEventListener('submit', (e) => {
-            e.preventDefault();
+  <script>
+    // Atualiza ano com proteção
+    (function(){
+      const el = document.getElementById('year');
+      console.assert(el, 'Elemento #year deve existir no footer.');
+      if (el) el.textContent = new Date().getFullYear();
+    })();
 
-            const nomeDoItem = formulario.item.value;
-            const valor = parseFloat(formulario.valor.value);
-            const quantidade = parseInt(formulario.quantidade.value);
-            const categoria = formulario.categoria.value;
+    // Configuração do WhatsApp — substitua com seu número no formato 55DDDNÚMERO
+    const WHATSAPP_NUMBER = '5511983599626'; // Brasil (55) + DDD + número
 
-            listaDeCompras.push({ nomeDoItem, valor, quantidade, categoria });
-            total += valor * quantidade;
+    function buildWaLink(text) {
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    }
 
-            atualizarExibicao();
+    // Teste: a URL deve conter a mensagem codificada
+    (function(){
+      const sample = 'Olá, quero comprar 1 pano & 1 jogo!';
+      const url = buildWaLink(sample);
+      const encoded = encodeURIComponent(sample);
+      console.assert(url.includes(encoded), 'buildWaLink deve codificar corretamente a mensagem.');
+    })();
 
-            formulario.item.value = '';
-            formulario.valor.value = '';
-            formulario.quantidade.value = 1;
-            formulario.categoria.value = 'Alimentos';
-            formulario.item.focus();
-        });
+    // CTA do Hero
+    const cta = document.getElementById('cta-whatsapp');
+    if (cta) {
+      cta.addEventListener('click', () => {
+        const msg = 'Olá! Quero comprar. Como funciona o envio?';
+        cta.href = buildWaLink(msg);
+      });
+    }
 
-        function removerItem(index) {
-            total -= listaDeCompras[index].valor * listaDeCompras[index].quantidade;
-            listaDeCompras.splice(index, 1);
-            atualizarExibicao();
-        }
+    // Ordenação simples (demo)
+    const sort = document.getElementById('sort');
+    const grid = document.getElementById('grid');
+    if (sort && grid) {
+      sort.addEventListener('change', () => {
+        const cards = Array.from(grid.children);
+        const byPrice = (card) => parseFloat(card.querySelector('.font-extrabold').textContent.replace(/[^\d,]/g,'').replace(',','.'));
+        if (sort.value === 'price-asc') cards.sort((a,b)=>byPrice(a)-byPrice(b));
+        else if (sort.value === 'price-desc') cards.sort((a,b)=>byPrice(b)-byPrice(a));
+        else return; // popular: mantém
+        grid.replaceChildren(...cards);
+      });
+    }
 
-        limparListaBtn.addEventListener('click', () => {
-            listaDeCompras = [];
-            total = 0;
-            atualizarExibicao();
-        });
-
-        baixarCSVBtn.addEventListener('click', () => {
-            const csvContent = gerarCSV(listaDeCompras);
-            const link = document.createElement('a');
-            link.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvContent);
-            link.download = 'lista_de_compras.csv';
-            link.click();
-        });
-
-        function gerarCSV(dados) {
-            let csv = 'Item,Valor,Quantidade,Categoria\n';
-            dados.forEach(item => {
-                csv += `${item.nomeDoItem},${item.valor.toFixed(2)},${item.quantidade},${item.categoria}\n`;
-            });
-            return csv;
-        }
-
-        atualizarExibicao();
-    </script>
+    // Botões de compra
+    document.querySelectorAll('.whatsapp-buy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.dataset.product;
+        const price = btn.dataset.price;
+        const msg = `Olá! Gostei do produto: ${name} (R$ ${price}). Pode me ajudar a finalizar a compra?`;
+        window.open(buildWaLink(msg), '_blank');
+      });
+    });
+  </script>
 </body>
 </html>
